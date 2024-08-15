@@ -1,7 +1,13 @@
-[Download AdventureWorks2022](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms)
+# .NET stub
+
+Dit project is een opzetje voor een verbinding met de database.
+
+Als je wilt testen met een lokale database, kun je het volgende doen.
+
+1. [Download AdventureWorks2022](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms)
 naar `C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\`
 
-Restore database:
+2. Restore database:
 ```sql
 USE [master];
 GO
@@ -18,7 +24,7 @@ WITH
 GO
 ```
 
-Kijken hoe groot de tabellen zijn:
+Zo kun je kijken hoe groot de tabellen zijn:
 ```sql
 SELECT 
     t.name AS TableName,
@@ -50,7 +56,7 @@ ORDER BY
     TotalSpaceMB DESC, t.name
 ```
 
-Scaffold DbContext:
+De DbContext is gegenereerd met het volgende commando:
 ```
 Scaffold-DbContext "Server=.;Database=AdventureWorks2022;Trusted_Connection=True;TrustServerCertificate=True;" 
 ```
