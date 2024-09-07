@@ -13,28 +13,3 @@ Jij bent op een project geplaatst waar je een mooie applicatie hebt ontwikkeld d
 Je krijgt een connection string naar een database om deze opdracht uit te voeren. Als alternatief kun je de database ook lokaal installeren. Verder kun je in deze repository een .NET-stub en een Java-stub vinden, mocht je daar gebruik van willen maken. Het is natuurlijk ook goed als je puur SQL gebruikt.
 
 Fork deze repository en push jouw oplossing en notities naar je fork. Of mail jouw overwegingen naar ons.
-
-## Lokale database
-Als je wilt testen met een lokale database, kun je het volgende doen.
-
-1. Installeer SQL Server.
-
-2. [Download AdventureWorks2022](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms)
-naar `C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\`
-
-3. Restore database:
-```sql
-USE [master];
-GO
-
-RESTORE DATABASE [AdventureWorks2022]
-FROM DISK = N'C:\AdventureWorks2022.bak'
-WITH
-    FILE = 1,
-    NOUNLOAD,
-    STATS = 5,
-    MOVE 'AdventureWorks2022' TO 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\AdventureWorks2022.mdf',
-    MOVE 'AdventureWorks2022_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\AdventureWorks2022_log.ldf',
-    REPLACE;
-GO
-```
